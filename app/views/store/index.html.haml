@@ -1,0 +1,13 @@
+-if notice
+  %p#notice= notice
+
+%h1 Your Progmatic Catalog
+
+- @products.each do |product|
+  .entry
+    =image_tag(product.image_url)
+    %h3=product.title
+    - #sanitize filter and nasty input to ensure pure text left
+    =sanitize(product.description)
+    .price_line
+      %span.price=number_to_currency(product.price)

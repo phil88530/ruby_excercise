@@ -1,10 +1,21 @@
 %head
   %title Depot
-  = stylesheet_link_tag     'application'
-  = stylesheet_link_tag     'depot'
-  = javascript_include_tag  'application' 
+  = stylesheet_link_tag     'depot', :media => "all"
+  = javascript_include_tag  'application'
   = csrf_meta_tags
 
-%body
-  = yield
+%body#store
+  #banner
+    =image_tag("/images/logo.png")
+    =@page_title || "Proagmatic Bookshelf"
+
+  #columns
+    #side
+      =link_to 'Home', ''
+      =link_to 'Questions', ''
+      =link_to 'News', ''
+      =link_to 'Contact', ''
+
+  #main
+    = yield
 
