@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
+	fixtures :products
+
 	test "product attribute can not be empt" do
 		product = Product.new
 		assert product.invalid?
