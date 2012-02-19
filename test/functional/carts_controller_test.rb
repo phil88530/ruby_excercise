@@ -2,7 +2,9 @@ require 'test_helper'
 
 class CartsControllerTest < ActionController::TestCase
   setup do
-    @cart = carts(:one)
+    @cart = Cart.create
+		@book_one = products(:ruby)
+		@book_two = products(:one)
   end
 
   test "should get index" do
@@ -39,6 +41,12 @@ class CartsControllerTest < ActionController::TestCase
     assert_redirected_to cart_path(assigns(:cart))
   end
 
+	test "can't delete product in cart" do
+		assert_difference('Product.count', 0) do
+			delete :destroy, :id => products(:ruby).to_param
+		end
+	end
+
   test "should destroy cart" do
     assert_difference('Cart.count', -1) do
 			session[:cart_id] = @cart.id
@@ -47,4 +55,19 @@ class CartsControllerTest < ActionController::TestCase
 
     assert_redirected_to store_path
   end
+
+	test "add unique products to cart" do
+		@cart.add_product(@book_one.id).save!
+		@cart.add_product(@book_two.id).save!
+		assert_equal 2, @cart.line_items.size
+		assert_equal @book_one.price + @book_two.price, @cart.total_price
+	end
+
+	test "add duplicate productgs to cart" do
+		@cart.add_product(@book_one.id).save!
+		@cart.add_product(@book_one.id).save!
+		assert_equal 1, @cart.line_items.size
+		assert_equal @book_one.price * 2, @cart.total_price
+		assert_equal 2, @cart.line_items[0].quantity
+	end
 end

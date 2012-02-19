@@ -19,7 +19,7 @@ class Product < ActiveRecord::Base
 		if line_items.empty?
 			return true
 		else
-			error.add(:base, 'can not destroy this item, item still refer to some line_items in someone\' cart')
+			errors.add(:base, 'can not destroy this item, item still refer to some line_items in someone\' cart')
 			return false
 		end
 	end
