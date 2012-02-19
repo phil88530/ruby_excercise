@@ -7,7 +7,7 @@
 		font: 120% bold;
 	}
 
-	.item_price, .total_line{
+	.item_price, .total_line, .remove_item{
 		text-align: right
 	}
 
@@ -15,4 +15,15 @@
 		font-weight: bold;
 		border-top: 1px solid #595;
 	}
+}
+
+#cart, #cart table{
+	font-size: smaller;
+	color: white;
+}
+
+#cart table{
+	border-top: 1px dotted #595;
+	border-bottom: 1px dotted #595;
+	margin-bottom: 10px;
 }
