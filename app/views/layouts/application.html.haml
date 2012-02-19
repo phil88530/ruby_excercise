@@ -1,5 +1,6 @@
 %head
   %title Depot
+  = stylesheet_link_tag     'application'
   = stylesheet_link_tag     'depot', :media => "all"
   = javascript_include_tag  'application'
   = csrf_meta_tags
@@ -18,5 +19,8 @@
       =link_to 'Contact', ''
 
   #main
+    -if notice
+      %p#notice= notice
+
     = yield
 

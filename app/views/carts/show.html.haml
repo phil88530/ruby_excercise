@@ -9,9 +9,10 @@
       %td= item.quantity 
       %td= item.product.title
       %td.item_price=number_to_currency(item.total_price)
+      %td.remove_item=button_to 'Remove', item, :method => :delete
 
   %tr.total_line
-    %td{:colspan => 2}Total
+    %td{:colspan => 3}Total
     %td.total_cell=number_to_currency(@cart.total_price)
 
 =button_to 'Empty Cart', @cart, :method => :delete, :confirm => 'Are you sure you want to empty your shopping cart?'
