@@ -1,4 +1,10 @@
+#re-render cart
 page.replace_html('cart', render(@cart))
+
+#slide items bar down when first item enters
+page[:cart].visual_effect :blind_down if @cart.total_items == 1
+
+#visual effect for highlight new added item
 page[:current_item].visual_effect :highlight,
 													:startcolor => '#88ff88',
 													:endcolor => '#114411'
