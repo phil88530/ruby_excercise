@@ -3,8 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #store{
+	#cart{
+		border-top: 1px dotted #595;
+		margin-top: 10px;
+	}
+
 	.cart_title{
-		font: 120% bold;
+		text-align: center;
+		font: 15px bold;
 	}
 
 	.item_price, .total_line, .remove_item{

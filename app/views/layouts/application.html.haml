@@ -14,14 +14,14 @@
 
   #columns
     #side
-      -if @cart
-        = hidden_div_if(@cart.line_items.empty?, :id => "cart") do
-          = render @cart
-      
       =link_to 'Home', '/'
       =link_to 'Questions', ''
       =link_to 'News', ''
       =link_to 'Contact', ''
+
+      -if @cart
+        = hidden_div_if(@cart.line_items.empty?, :id => "cart") do
+          = render @cart
 
   #main
     -if notice
