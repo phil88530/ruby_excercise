@@ -6,7 +6,10 @@
 
 - @products.each do |product|
   .entry
-    =image_tag(product.image_url)
+    =form_tag(line_items_path(:product_id => product), :remote => true) do
+      =image_submit_tag(product.image_url, :class => 'product_image')
+
+    -#=image_tag(product.image_url)
     %h3=product.title
     - #sanitize filter and nasty input to ensure pure text left
     =sanitize(product.description)
