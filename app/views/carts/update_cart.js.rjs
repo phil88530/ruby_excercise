@@ -1,8 +1,11 @@
 #re-render cart
 page.replace_html('cart', render(@cart))
 
-#slide items bar down when first item enters
+#slide items bar up/down when first item enters
 page[:cart].visual_effect :blind_down if @cart.total_items == 1
+
+page[:cart].visual_effect :blind_up, :duration => 2 if @cart.total_items == 0
+page[:cart].visual_effect :fade, :duration => 2 if @cart.total_items == 0
 
 #visual effect for highlight new added item
 page[:current_item].visual_effect :highlight,
