@@ -5,9 +5,9 @@
 // the compiled file.
 //=require jquery
 //=require jquery_ujs
-//= require_tree .
 //= require prototype
 //= require effects
 //= require dragdrop
 //= require controls
+//= require_tree .
 
