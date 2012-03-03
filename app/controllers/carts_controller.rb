@@ -83,7 +83,8 @@ class CartsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to store_url, :notice => 'Your shopping cart has been emptied'}
-			format.js{render :template => "carts/update_cart"}
+			#we don't want clear the cart anymore, because it causes trouble if they are checking out and cart is empty
+			#format.js{render :template => "carts/update_cart"}
       format.json { head :ok }
     end
   end

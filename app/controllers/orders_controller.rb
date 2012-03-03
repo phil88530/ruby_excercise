@@ -29,7 +29,9 @@ class OrdersController < ApplicationController
 			redirect_to store_url, :notice =>"Your cart is empty"
 			return
 		end
+
     @order = Order.new
+		@cart_disabled = true
 
     respond_to do |format|
       format.html # new.html.erb

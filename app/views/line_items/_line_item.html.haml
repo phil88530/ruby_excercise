@@ -4,6 +4,7 @@
     &times;
   %td= line_item.product.title
   %td.item_price=number_to_currency(line_item.total_price)
- 
-%tr
-  %td.remove_item{:colspan => 3}=button_to 'Remove', line_item, :remote => true, :method => :delete
+
+- if !@cart_disabled
+  %tr
+    %td.remove_item{:colspan => 3}=button_to 'Remove', line_item, :remote => true, :method => :delete, :disabled =>@cart_disabled 

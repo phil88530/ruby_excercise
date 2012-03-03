@@ -56,15 +56,15 @@ class CartsControllerTest < ActionController::TestCase
     assert_redirected_to store_path
   end
 
-	#ajax testing for clear cart
-	test "should remove cart via ajax" do
-    assert_difference('Cart.count', -1) do
-			session[:cart_id] = @cart.id
-			xhr :post, :destroy, :id => @cart.id
-    end
+	#ajax testing for clear cart(currently ajax is not in use)
+	#test "should remove cart via ajax" do
+  #  assert_difference('Cart.count', -1) do
+	#		session[:cart_id] = @cart.id
+	#		xhr :post, :destroy, :id => @cart.id
+  #  end
 
-		assert_response :success
-	end
+	#	assert_response :success
+	#end
 
 	test "add unique products to cart" do
 		@cart.add_product(@book_one.id).save!
