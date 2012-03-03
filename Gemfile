@@ -17,7 +17,8 @@ end
 gem 'sass-rails'
 gem 'jquery-rails'
 gem 'haml-rails'
-gem 'prototype-rails'
+gem 'prototype-rails'	#enable rjs running
+gem 'will_paginate', '~> 3.0'	#a paginate plugin
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
