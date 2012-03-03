@@ -120,4 +120,4 @@ DEPENDENCIES
   sass-rails
   thin
   uglifier
-  will_paginate (~> 3.0)
+  will_paginate
