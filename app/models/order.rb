@@ -16,6 +16,8 @@ class Order < ActiveRecord::Base
 
 	def mark_shipped
 		self.ship_date = Time.now
-		self.save!
+		if self.save!
+			Notifier.order_shipped(self).deliver!
+		end
 	end
 end

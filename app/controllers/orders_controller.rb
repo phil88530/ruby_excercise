@@ -93,11 +93,4 @@ class OrdersController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-	def ship_order
-		order = Order.find(params[:id])
-		if order.mark_shipped
-			Notifier.order_shipped(order).deliver
-		end
-	end
 end

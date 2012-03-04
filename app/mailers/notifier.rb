@@ -22,4 +22,9 @@ class Notifier < ActionMailer::Base
 		@cart_disabled = true #disable all line_item related actions
     mail :to => order.email, :subject => 'Pragmatic Store Order Shipped'
   end
+
+	def cart_not_found(id)
+		@id = id
+    mail :to => 'support@depot.com', :subject => 'Cart Not Found Error'
+	end
 end
