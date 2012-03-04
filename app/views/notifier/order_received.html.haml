@@ -1,0 +1,9 @@
+%h3 Pragmatic Order Received
+%p="Dear #{@order.name}"
+
+%table
+  %tr
+    %th{:colspan => 2} Qty
+    %th Description
+
+  =render @order.line_items
