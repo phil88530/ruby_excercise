@@ -13,4 +13,9 @@ class Order < ActiveRecord::Base
 			line_items << item
 		end
 	end
+
+	def mark_shipped
+		self.ship_date = Time.now
+		self.save!
+	end
 end
