@@ -23,7 +23,7 @@ group :assets do
 end
 
 gem 'sass-rails'
-gem 'jquery-rails'
+#gem 'jquery-rails'
 gem 'haml-rails'
 gem 'prototype-rails'	#enable rjs running
 gem 'will_paginate'	#a paginate plugin
