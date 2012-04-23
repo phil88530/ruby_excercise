@@ -1,5 +1,5 @@
 %head
-  %title Depot
+  %title Depot Books Online Store
   = javascript_include_tag  :application
   = stylesheet_link_tag     :application
   = stylesheet_link_tag     :depot
@@ -9,15 +9,22 @@
 
 %body#store
   #banner
+    -# Language Selection
+    =form_tag store_path, :class => 'locale' do
+      =select_tag 'set_locale', options_for_select(LANGUAGES, I18n.locale.to_s), 
+        :onchange => 'this.form.submit()'
+      =submit_tag 'submit'
+      =javascript_tag "$$('.locale input').each(Element.hide)"
+
     =image_tag("/images/logo.png")
-    =@page_title || "Proagmatic Bookshelf"
+    =@page_title || t('.title')
 
   #columns
     #side
-      =link_to 'Home', '/'
-      =link_to 'Questions', ''
-      =link_to 'News', ''
-      =link_to 'Contact', ''
+      =link_to t('.home'), '/'
+      =link_to t('.questions'), ''
+      =link_to t('.news'), ''
+      =link_to t('.contact'), ''
       -#menu for logged admin
       -if session[:user_id]
         =link_to 'Orders', orders_path

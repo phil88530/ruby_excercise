@@ -59,7 +59,7 @@ class OrdersController < ApplicationController
 				session[:cart_id] = nil
 				#send email confirmation
 				Notifier.order_received(@order).deliver
-        format.html { redirect_to store_url, :notice => 'Thank you for you order.' }
+        format.html { redirect_to store_url, :notice => I18n.t('.thanks') }
         format.json { render :json => @order, :status => :created, :location => @order }
       else
         format.html { render :action => "new" }

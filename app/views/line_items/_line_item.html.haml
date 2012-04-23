@@ -7,4 +7,4 @@
 
 - if !@cart_disabled
   %tr
-    %td.remove_item{:colspan => 3}=button_to 'Remove', line_item, :remote => true, :method => :delete, :disabled =>@cart_disabled 
+    %td.remove_item{:colspan => 3}=button_to t('.remove'), line_item, :remote => true, :method => :delete, :disabled =>@cart_disabled 

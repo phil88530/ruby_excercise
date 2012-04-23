@@ -7,11 +7,17 @@
   font: small-caps 40px/40px "Times New Roman", serif;
   color: #282;
   text-align: center;
+  
+  img{
+    float: left;
+  }
+
+  .locale{
+    float: right;
+    margin-right: 10px;
+  }
 }
 
-#banner img{
-  float: left;
-}
 
 #columns{
   background: #141;
