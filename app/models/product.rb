@@ -24,14 +24,4 @@ class Product < ActiveRecord::Base
 			return false
 		end
 	end
-
-  def price
-    #if language is es, return price * 1.3
-    #assume euro to dollar is 1.3 to 1
-    if I18n.locale.to_s == "es"
-      super * 1.3
-    else
-      super
-    end
-  end
 end

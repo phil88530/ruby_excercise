@@ -5,7 +5,7 @@
 
   %tr.total_line
     %td{:colspan => 2}Total
-    %td.total_cell=number_to_currency(@cart.total_price)
+    %td.total_cell=t_currency(@cart.total_price)
 
 -if !@cart_disabled
   =button_to t('.checkout'), new_order_path, :method => :get, :disabled => @cart_disabled

@@ -5,4 +5,8 @@ module ApplicationHelper
 		end
 		content_tag("div", attributes, &block)
 	end
+
+  def t_currency(price)
+    number_to_currency(price * (I18n.locale.to_s == 'es' ? 1.3 : 1))
+  end
 end
