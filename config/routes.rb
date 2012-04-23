@@ -1,19 +1,30 @@
 Depot::Application.routes.draw do
-  resources :users
+  get 'admin' => "admin#index"
 
-  resources :orders
+  controller :sessions do
+    get 'login' => :new
+    post 'login' => :create
+    delete 'logout' => :destroy
+  end
 
-  resources :line_items
+  #these are the english routes, default as locale
+  scope '(:locale)' do
+    resources :users
 
-  resources :carts
+    resources :orders
 
-  get "store/index"
+    resources :line_items
 
-  resources :products do
-		get :who_bought, :on => :member
-	end
+    resources :carts
 
-  root :to => "store#index", :as => 'store'
+    get "store/index"
+
+    resources :products do
+      get :who_bought, :on => :member
+    end
+
+    root :to => "store#index", :as => 'store'
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

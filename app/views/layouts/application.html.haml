@@ -18,7 +18,13 @@
       =link_to 'Questions', ''
       =link_to 'News', ''
       =link_to 'Contact', ''
+      -#menu for logged admin
+      -if session[:user_id]
+        =link_to 'Orders', orders_path
+        =link_to 'Products', products_path
+        =link_to 'Users', users_path
 
+      -#show the card condition
       -if @cart 
         = hidden_div_if(@cart.line_items.empty?, :id => "cart") do
           = render @cart

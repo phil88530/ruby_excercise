@@ -1,6 +1,8 @@
 require 'digest/sha2'
 
 class User < ActiveRecord::Base
+  after_destroy :ensure_an_admin_remains
+
 	validates :name, :presence => true, :uniqueness => true
 	validates :password, :confirmation => true
 
@@ -10,10 +12,16 @@ class User < ActiveRecord::Base
 
 	validate :password_must_be_present
 
+  #if user table is empty, raise error and reverse it
+  def ensure_an_admin_remains
+    if User.count.zero?
+      raise "Can't delete last yser"
+    end
+  end
+
 	def User.encrypt_password(password, salt)
 		Digest::SHA2.hexdigest(password + "wibble" + salt)
 	end
-
 
 	# 'password' is a virtual attribute
 	def password=(password)
@@ -37,7 +45,6 @@ class User < ActiveRecord::Base
 	def password_must_be_present
 		errors.add(:password, "Missing password") unless hashed_password.present?
 	end
-
 
 	def generate_salt
 		self.salt = self.object_id.to_s + rand.to_s
