@@ -24,4 +24,15 @@ class Product < ActiveRecord::Base
 			return false
 		end
 	end
+
+  #return price with right currency
+  def price
+    #if under es language format, make price 1.3 times more exp
+    #(assume 1 euro = 1.3 dollar)
+    if I18n.locale.to_s == "es"
+      super * 1.3
+    else
+      super
+    end
+  end
 end

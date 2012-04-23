@@ -6,11 +6,11 @@ es:
   number:
     currency:
       format:
-        unit:       "$US"
+        unit:       "&euro;"
         precision:  2
         separator:  "."
         delimiter:  ","
-        format:     "%n&nbsp;%u"
+        format:     "%u%n&nbsp;"
 
   activerecord:
     errors:
