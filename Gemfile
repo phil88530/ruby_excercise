@@ -7,7 +7,7 @@ gem 'rails', '3.2.1'
 
 gem 'json'
 
-group :development, :test, :beta do
+group :development, :test do
 	gem 'sqlite3'
 end
 
