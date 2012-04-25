@@ -16,6 +16,7 @@ group :production do
 	gem 'thin'	#thin, a more robust production server
 end
 
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -27,6 +28,7 @@ gem 'sass-rails'
 gem 'haml-rails'
 gem 'prototype-rails'	#enable rjs running
 gem 'will_paginate'	#a paginate plugin
+gem 'capistrano'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
