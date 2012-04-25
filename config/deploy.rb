@@ -14,7 +14,7 @@ role :app, domain                          # This may be the same as your `Web` 
 role :db,  domain, :primary => true        # This is where Rails migrations will run
 
 #miscellaneous options
-set :rails_env, :beta
+set :rails_env, :development
 set :deploy_via, :remote_cache
 set :scm, 'git'
 set :branch, 'master'
