@@ -31,7 +31,7 @@ class UseStoriesTest < ActionDispatch::IntegrationTest
 		post_via_redirect "/orders", :order => {:name	=> "Phil",
 																					 	:address	=> "Address 123",
 																						:email	=> "phil88530@hotmail.com",
-																						:pay_type	=> "Check"}
+																						:pay_type	=> "cheque"}
 		assert_response :success
 		assert_template	"index"
 		cart = Cart.find(session[:cart_id])
@@ -45,7 +45,7 @@ class UseStoriesTest < ActionDispatch::IntegrationTest
 		assert_equal "Phil", order.name
 		assert_equal "Address 123", order.address
 		assert_equal "phil88530@hotmail.com", order.email
-		assert_equal "Check", order.pay_type
+		assert_equal "cheque", order.pay_type
 		
 		assert_equal 1, order.line_items.size
 		line_item = order.line_items[0]
