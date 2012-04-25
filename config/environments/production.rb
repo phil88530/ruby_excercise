@@ -35,8 +35,6 @@ Depot::Application.configure do
   # See everything in the log (default is :info)
   # config.log_level = :debug
 
-  # create logs daily
-  config.logger = Logger.new("#{RAILS_ROOT}/log/#{ENV['RAILS_ENV']}.log", 20, 'daily')
   #redirect logs to the system logs on this machine
   #config.logger = SyslogLogger.new
 
