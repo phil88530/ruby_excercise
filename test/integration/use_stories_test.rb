@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class UseStoriesTest < ActionDispatch::IntegrationTest
-	fixtures :products	#load all fixtures
+	fixtures :products, :users
 
 	test "buying a product" do	
 		#init testing environment
@@ -64,4 +64,35 @@ class UseStoriesTest < ActionDispatch::IntegrationTest
 		assert_equal 'Phil <phil88530@gmail.com>', mail[:from].value
 		assert_equal 'Pragmatic Store Order Shipped', mail.subject
 	end
+
+
+  test "user login" do
+    #go login page first
+    get "/login"
+    assert_response :success
+    assert_template "sessions/new"
+    
+    #login
+    post_via_redirect "login", :name => users(:one).name, :password => 'secret'
+    assert_response :success
+    assert_template "index"
+    assert_select "a", "Logout"
+
+    #logout
+    get_via_redirect "/logout"
+    assert_response :success
+    assert_template "index"
+    assert_equal 'Logged out', flash[:notice]
+  end
+
+  test "multiple language support" do
+    #go spanish index page
+    get "/es"
+    assert_response :success
+    assert_template "index"
+
+    #display contents in spanish
+    assert_select "h1", "Su Cat&aacute;logo de Pragmatic"
+    assert_select "a", "Inicio"
+  end
 end

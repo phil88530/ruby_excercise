@@ -4,7 +4,7 @@ Depot::Application.routes.draw do
   controller :sessions do
     get 'login' => :new
     post 'login' => :create
-    delete 'logout' => :destroy
+    get 'logout' => :destroy
   end
 
   #these are the english routes, default as locale
