@@ -2,6 +2,12 @@ class ApplicationController < ActionController::Base
   before_filter :set_i18n_locale_from_params, :authorize
   protect_from_forgery
 
+  #throw error when auth-token not match
+  def handle_unverified_request
+    redirect_to root_url, :notice => "We detect unmatching token form your form, please do not hack us"
+    
+  end
+
 	private
 	def current_cart
 		Cart.find(session[:cart_id])
