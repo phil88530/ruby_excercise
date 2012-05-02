@@ -1,5 +1,6 @@
 class Order < ActiveRecord::Base
 	has_many :line_items, :dependent => :destroy
+  encrypt(:name, :email)
 
   PAYMENT_TYPES = ["cheque", "credit_card", "purchase_order"]
 
