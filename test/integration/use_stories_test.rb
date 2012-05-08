@@ -92,7 +92,7 @@ class UseStoriesTest < ActionDispatch::IntegrationTest
     assert_template "index"
 
     #display contents in spanish
-    assert_select "h1", "Su Cat&aacute;logo de Pragmatic"
+    assert_select "h1", "Su Cat&aacute;logo de Pragmatic\n-\nPragmatic Store"
     assert_select "a", "Inicio"
   end
 end

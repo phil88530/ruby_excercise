@@ -2,14 +2,18 @@
 one:
     title: MyString
     description: MyText
-    image_url: MyString
+    image_url: 1.jpg
     price: 9.99
+    cover_image_type: image/png
+    cover_image: myfake_png_data
 
 two:
     title: MyString
     description: MyText
-    image_url: MyString
+    image_url: 1.jpg
     price: 9.99
+    cover_image_type: image/png
+    cover_image: myfake_png_data
 
 ruby:
     title:  Programming Ruby 1.9
@@ -17,3 +21,5 @@ ruby:
         ruby is a fast growing and exciting dynamic language.
     price: 49.50
     image_url:  ruby.png
+    cover_image_type: image/png
+    cover_image: myfake_png_data

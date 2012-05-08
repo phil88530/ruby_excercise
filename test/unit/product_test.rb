@@ -16,7 +16,9 @@ class ProductTest < ActiveSupport::TestCase
 		product = Product.new(
 				:title => 'alala',
 				:description => 'dddd',
-				:image_url => 'dsa.png')
+				:image_url => 'dsa.png',
+        :cover_image_type => 'image/png',
+        :cover_image => 'myfake_png_data')
 		
 		product.price = -1
 		assert product.invalid?
@@ -35,7 +37,10 @@ class ProductTest < ActiveSupport::TestCase
 			:title => 'alala',
 			:description => 'dddd',
 			:price=> 1,
-			:image_url => url)
+			:image_url => url,
+      :cover_image_type => 'image/png',
+      :cover_image => 'myfake_png_data'
+)
 	end
 
 	test "image_url"  do
