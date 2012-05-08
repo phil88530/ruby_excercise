@@ -88,4 +88,13 @@ class ProductsController < ApplicationController
 			format.xml{render :xml => @product}
 		end
 	end
+
+  #send the picture from request
+  def picture
+    @product = Product.find(params[:id])
+    send_data(@product.cover_image,
+      :filename => @product.title,
+      :type => @product.cover_image_type,
+      :disposition => "inline")
+  end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120415184101) do
+ActiveRecord::Schema.define(:version => 20120508085021) do
 
   create_table "carts", :force => true do |t|
     t.datetime "created_at"
@@ -42,8 +42,15 @@ ActiveRecord::Schema.define(:version => 20120415184101) do
     t.text     "description"
     t.string   "image_url"
     t.decimal  "price"
+<<<<<<< HEAD
     t.datetime "created_at"
     t.datetime "updated_at"
+=======
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+    t.binary   "cover_image",      :limit => 1048576
+    t.string   "cover_image_type"
+>>>>>>> make product now can uploading image for cover
   end
 
   create_table "users", :force => true do |t|
