@@ -1,7 +1,10 @@
 - content_for :head do
   =stylesheet_link_tag  :store
 
-%h1=t('.title_html')
+%h1
+  =t('.title_html')
+  \-
+  =page_title
 %h5="you have visted our index page for #{pluralize(session[:counter],'time')}"
 
 - @products.each do |product|

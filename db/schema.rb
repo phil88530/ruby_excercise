@@ -14,15 +14,15 @@
 ActiveRecord::Schema.define(:version => 20120508085021) do
 
   create_table "carts", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "line_items", :force => true do |t|
     t.integer  "product_id"
     t.integer  "cart_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.integer  "quantity",   :default => 1
     t.integer  "order_id"
   end
@@ -42,15 +42,10 @@ ActiveRecord::Schema.define(:version => 20120508085021) do
     t.text     "description"
     t.string   "image_url"
     t.decimal  "price"
-<<<<<<< HEAD
-    t.datetime "created_at"
-    t.datetime "updated_at"
-=======
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
     t.binary   "cover_image",      :limit => 1048576
     t.string   "cover_image_type"
->>>>>>> make product now can uploading image for cover
   end
 
   create_table "users", :force => true do |t|
