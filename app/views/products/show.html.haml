@@ -5,8 +5,11 @@
   %b Description:
   = @product.description
 %p
+  =image_tag(picture_product_path(@product), :size => "80x96")
+  %br
   %b Image url:
   = @product.image_url
+
 %p
   %b Price:
   = @product.price 
