@@ -41,6 +41,12 @@ es:
       questions:  "Preguntas"
       news:       "Noticias"
       contact:    "Contacto"
+      admin_html: "Administr&aacute;tor"
+      orders:     "Contacto"
+      products:   "Producto"
+      users:      "Usuario"
+      logout:     "Logout"
+      login:      "Login"
 
   store:
     index:

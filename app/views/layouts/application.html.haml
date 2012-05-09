@@ -21,16 +21,19 @@
 
   #columns
     #side
-      =link_to_unless_current t('.home'), '/'
-      =link_to t('.questions'), ''
-      =link_to t('.news'), ''
-      =link_to t('.contact'), ''
+      =link_to_unless_current t('.home'), store_path
+      -#=link_to t('.questions'), ''
+      -#=link_to t('.news'), ''
+      -#=link_to t('.contact'), ''
       -#menu for logged admin
       -if session[:user_id]
-        =link_to_unless_current 'Orders', orders_path
-        =link_to_unless_current 'Products', products_path
-        =link_to_unless_current 'Users', users_path
-        =link_to_unless_current 'Logout', logout_path
+        =link_to_unless_current t('.admin_html'), admin_path
+        =link_to_unless_current t('.orders'), orders_path
+        =link_to_unless_current t('.products'), products_path
+        =link_to_unless_current t('.users'), users_path
+        =link_to_unless_current t('.logout'), logout_path
+      -else
+        =link_to_unless_current t('.login'), login_path
 
       -#show the card condition
       -if @cart 

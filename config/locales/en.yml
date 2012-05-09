@@ -20,6 +20,12 @@ en:
       questions:  "Questions"
       news:       "News"
       contact:    "Contact"
+      admin_html:      "Admin"
+      orders:     "Orders"
+      products:   "Products"
+      users:      "Users"
+      logout:     "Logout"
+      login:      "Login"
 
   store:
     index:
