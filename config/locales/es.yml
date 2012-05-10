@@ -47,6 +47,7 @@ es:
       users:      "Usuario"
       logout:     "Logout"
       login:      "Login"
+      view_cart:  "Ver carro"
 
   store:
     index:

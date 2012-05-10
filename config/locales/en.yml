@@ -26,6 +26,7 @@ en:
       users:      "Users"
       logout:     "Logout"
       login:      "Login"
+      view_cart:  "View cart"
 
   store:
     index:

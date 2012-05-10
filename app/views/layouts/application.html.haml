@@ -19,6 +19,10 @@
     =image_tag("/images/logo.png")
     =@page_title || t('.title')
 
+  - if @cart
+    - content_for :sidebar do
+      =link_to_unless_current t('.view_cart'), cart_path(@cart)
+    
   #columns
     #side
       =link_to_unless_current t('.home'), store_path
@@ -31,6 +35,7 @@
         =link_to_unless_current t('.orders'), orders_path
         =link_to_unless_current t('.products'), products_path
         =link_to_unless_current t('.users'), users_path
+        =yield :sidebar
         =link_to_unless_current t('.logout'), logout_path
       -else
         =link_to_unless_current t('.login'), login_path
