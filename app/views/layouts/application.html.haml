@@ -24,7 +24,7 @@
       =link_to_unless_current t('.home'), store_path
       -#=link_to t('.questions'), ''
       -#=link_to t('.news'), ''
-      -#=link_to t('.contact'), ''
+      =mail_to("phil88530@hotmail.com",t('.contact'), :subject => "Contact Form", :encode => "javascript")
       -#menu for logged admin
       -if session[:user_id]
         =link_to_unless_current t('.admin_html'), admin_path
