@@ -25,7 +25,7 @@ en:
       products:   "Products"
       users:      "Users"
       logout:     "Logout"
-      login:      "Login"
+      login:      "Admin Login"
       view_cart:  "View cart"
 
   store:
