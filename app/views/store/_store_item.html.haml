@@ -1,0 +1,14 @@
+-# @products.each do |store_item|
+.entry
+  =form_tag(line_items_path(:product_id => store_item), :remote => true) do
+    =image_submit_tag(store_item.image_url, :class => 'product_image')
+
+  -#=image_tag(store_item.image_url)
+  %h3=store_item.title
+ 
+  -#sanitize filter and nasty input to ensure pure text left 
+  =sanitize(store_item.description)
+
+  .price_line
+    %span.price=t_currency(store_item.price)
+    =button_to t('.add_html'), line_items_path(:product_id => store_item), :remote => true

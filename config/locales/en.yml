@@ -31,6 +31,8 @@ en:
   store:
     index:
       title_html: "Your Pragmatic Catalog"
+
+    store_item:
       add_html:   "Add to Cart"
 
   carts:
