@@ -8,12 +8,13 @@
   text-align: center;
   
   img{
-    float: left;
+    float: right;
+    margin-right: 5px;
   }
 
   .locale{
-    float: right;
-    margin-right: 10px;
+    float: left;
+    margin: 5px 0 0 10px;
   }
 }
 

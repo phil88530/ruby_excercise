@@ -44,6 +44,8 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
+        expire_index_cache
+
         format.html { redirect_to @product, :notice => 'Product was successfully created.' }
         format.json { render :json => @product, :status => :created, :location => @product }
       else
@@ -60,6 +62,8 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.update_attributes(params[:product])
+        expire_index_cache
+
         format.html { redirect_to @product, :notice => 'Product was successfully updated.' }
         format.json { head :ok }
       else
@@ -73,11 +77,14 @@ class ProductsController < ApplicationController
   # DELETE /products/1.json
   def destroy
     @product = Product.find(params[:id])
-    @product.destroy
 
     respond_to do |format|
-      format.html { redirect_to products_url }
-      format.json { head :ok }
+      if @product.destroy
+        expire_index_cache
+
+        format.html { redirect_to products_url }
+        format.json { head :ok }
+      end
     end
   end
 	
@@ -96,5 +103,12 @@ class ProductsController < ApplicationController
       :filename => @product.title,
       :type => @product.cover_image_type,
       :disposition => "inline")
+  end
+
+  private
+  def expire_index_cache
+    #expire the index pages cache
+    expire_page :action => "index"
+    expire_page :controller => "store", :action => "index"
   end
 end

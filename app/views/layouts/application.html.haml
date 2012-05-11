@@ -9,6 +9,8 @@
 
 %body#store
   #banner
+    =image_tag("/images/logo.png")
+    =@page_title || t('.title')
     -# Language Selection
     =form_tag store_path, :class => 'locale' do
       =select_tag 'set_locale', options_for_select(LANGUAGES, I18n.locale.to_s), 
@@ -16,8 +18,6 @@
       =submit_tag 'submit'
       =javascript_tag "$$('.locale input').each(Element.hide)"
 
-    =image_tag("/images/logo.png")
-    =@page_title || t('.title')
 
   - if @cart
     - content_for :sidebar do
