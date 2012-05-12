@@ -57,4 +57,10 @@ Depot::Application.configure do
   # the I18n.default_locale when a translation can not be found)
   config.i18n.fallbacks = true
 
+<<<<<<< HEAD
+=======
+	# google analytics, replace this with your tracker code
+	GA.tracker = "UA-31674335-1"
+
+>>>>>>> update heroku with google analytics
 end

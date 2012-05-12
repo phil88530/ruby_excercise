@@ -29,6 +29,7 @@ gem 'haml-rails'
 gem 'prototype-rails'	#enable rjs running
 gem 'will_paginate'	#a paginate plugin
 gem 'capistrano'
+gem 'google-analytics-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
