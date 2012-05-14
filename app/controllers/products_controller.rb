@@ -110,5 +110,8 @@ class ProductsController < ApplicationController
     #expire the index pages cache
     expire_page :action => "index"
     expire_page :controller => "store", :action => "index"
+
+    #expire client cache when list has changed
+    expire_fragment(:controller => "store", :action => "index")
   end
 end

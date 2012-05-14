@@ -7,5 +7,5 @@
   =page_title
 %h5="you have visted our index page for #{pluralize(session[:counter],'time')}"
 
-=render(:partial => "store_item", :collection => @products, :spacer_template => "spacer")
-
+- cache do
+  =render(:partial => "store_item", :collection => @products, :spacer_template => "spacer")
