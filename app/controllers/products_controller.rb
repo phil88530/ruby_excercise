@@ -44,7 +44,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
-        expire_index_cache
+        expire_index_caches
 
         format.html { redirect_to @product, :notice => 'Product was successfully created.' }
         format.json { render :json => @product, :status => :created, :location => @product }
@@ -62,7 +62,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.update_attributes(params[:product])
-        expire_index_cache
+        expire_index_caches
 
         format.html { redirect_to @product, :notice => 'Product was successfully updated.' }
         format.json { head :ok }
@@ -80,7 +80,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.destroy
-        expire_index_cache
+        expire_index_caches
 
         format.html { redirect_to products_url }
         format.json { head :ok }
@@ -106,7 +106,7 @@ class ProductsController < ApplicationController
   end
 
   private
-  def expire_index_cache
+  def expire_index_caches
     #expire the index pages cache
     expire_page :action => "index"
     expire_page :controller => "store", :action => "index"
