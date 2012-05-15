@@ -1,4 +1,10 @@
+#include rack based simple page
+require './app/store/'
+
 Depot::Application.routes.draw do
+  #route the simple rack based page, store
+  match 'rack_store' => StoreApp.new
+
   get 'admin' => "admin#index"
 
   controller :sessions do
