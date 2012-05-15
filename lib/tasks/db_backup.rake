@@ -3,8 +3,8 @@ namespace :db do
   task :backup => :environment do
     backup_dir = ENV['DIR'] || File.join(Rails.root, 'db','backup')
 
-    source = File.join(Rails.root, 'db', "production.sqlite3")
-    dest = File.join(backup_dir, "production.backup")
+    source = File.join(Rails.root, 'db', "#{ENV['RAILS_ENV']}.sqlite3")
+    dest = File.join(backup_dir, "#{ENV['RAILS_ENV']}.backup")
 
     makedirs backup_dir
     sh "sqlite3 #{source} .dump > #{dest}"
