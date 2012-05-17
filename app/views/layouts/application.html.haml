@@ -20,10 +20,9 @@
         =submit_tag 'submit'
         =javascript_tag "$$('.locale input').each(Element.hide)"
 
-
-    - if @cart
+    - if ! @cart
       - content_for :sidebar do
-        =link_to_unless_current t('.view_cart'), cart_path(@cart)
+        =link_to_unless_current t('.view_cart'), cart_path(session[:cart_id])
       
     #columns
       #side
