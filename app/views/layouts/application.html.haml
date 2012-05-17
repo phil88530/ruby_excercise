@@ -1,54 +1,55 @@
-%head
-  %title Depot Books Online Store
-  = javascript_include_tag  :application
-  = stylesheet_link_tag     :application
-  = stylesheet_link_tag     :depot
-  = stylesheet_link_tag     :carts
-  = csrf_meta_tags
-  = analytics_init if Rails.env.production?  
-  = yield :head
+%html
+  %head
+    %title Depot Books Online Store
+    = javascript_include_tag  :application
+    = stylesheet_link_tag     :application
+    = stylesheet_link_tag     :depot
+    = stylesheet_link_tag     :carts
+    = csrf_meta_tags
+    = analytics_init if Rails.env.production?  
+    = yield :head
 
-%body#store
-  #banner
-    =image_tag("/images/logo.png")
-    =@page_title || t('.title')
-    -# Language Selection
-    =form_tag store_path, :class => 'locale' do
-      =select_tag 'set_locale', options_for_select(LANGUAGES, I18n.locale.to_s), 
-        :onchange => 'this.form.submit()'
-      =submit_tag 'submit'
-      =javascript_tag "$$('.locale input').each(Element.hide)"
+  %body#store
+    #banner
+      =image_tag("/images/logo.png")
+      =@page_title || t('.title')
+      -# Language Selection
+      =form_tag store_path, :class => 'locale' do
+        =select_tag 'set_locale', options_for_select(LANGUAGES, I18n.locale.to_s), 
+          :onchange => 'this.form.submit()'
+        =submit_tag 'submit'
+        =javascript_tag "$$('.locale input').each(Element.hide)"
 
 
-  - if @cart
-    - content_for :sidebar do
-      =link_to_unless_current t('.view_cart'), cart_path(@cart)
-    
-  #columns
-    #side
-      =link_to_unless_current t('.home'), store_path
-      -#=link_to t('.questions'), ''
-      -#=link_to t('.news'), ''
-      =mail_to("phil88530@hotmail.com",t('.contact'), :subject => "Contact Form", :encode => "javascript")
-      -#menu for logged admin
-      -if session[:user_id]
-        =link_to_unless_current t('.admin_html'), admin_path
-        =link_to_unless_current t('.orders'), orders_path
-        =link_to_unless_current t('.products'), products_path
-        =link_to_unless_current t('.users'), users_path
-        =yield :sidebar
-        =link_to_unless_current t('.logout'), logout_path
-      -else
-        =link_to_unless_current t('.login'), login_path
+    - if @cart
+      - content_for :sidebar do
+        =link_to_unless_current t('.view_cart'), cart_path(@cart)
+      
+    #columns
+      #side
+        =link_to_unless_current t('.home'), store_path
+        -#=link_to t('.questions'), ''
+        -#=link_to t('.news'), ''
+        =mail_to("phil88530@hotmail.com",t('.contact'), :subject => "Contact Form", :encode => "javascript")
+        -#menu for logged admin
+        -if session[:user_id]
+          =link_to_unless_current t('.admin_html'), admin_path
+          =link_to_unless_current t('.orders'), orders_path
+          =link_to_unless_current t('.products'), products_path
+          =link_to_unless_current t('.users'), users_path
+          =yield :sidebar
+          =link_to_unless_current t('.logout'), logout_path
+        -else
+          =link_to_unless_current t('.login'), login_path
 
-      -#show the card condition
-      -if @cart 
-        = hidden_div_if(@cart.line_items.empty?, :id => "cart") do
-          = render @cart
+        -#show the card condition
+        -if @cart 
+          = hidden_div_if(@cart.line_items.empty?, :id => "cart") do
+            = render @cart
 
-  #main
-    -if notice
-      %p#notice= notice
+    #main
+      -if notice
+        %p#notice= notice
 
-    = yield
+      = yield
 
